@@ -46,15 +46,15 @@ meter to. For example, to use it on all the password fields with the default
 examples:
 
 ```javascript
-    $(':password').pwstrength();
+$(':password').pwstrength();
 ```
 
 To apply it only to one input and change the options:
 
 ```javascript
-    $('#passwd1').pwstrength({
-        ui: { showVerdictsInsideProgressBar: true }
-    });
+$('#passwd1').pwstrength({
+    ui: { showVerdictsInsideProgressBar: true }
+});
 ```
 
 ## Options
