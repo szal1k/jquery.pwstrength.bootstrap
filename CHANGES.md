@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2.1.2
+
+- Fix errors in Portuguese localization.
+- Fix French localization capitalization.
+- Fix ruleIsMet issues with wordMin and wordMax rules.
+- Don't allow verdict to break line when inside progress bar.
+
 ## 2.1.1
 
 - Add missing rule, needed by the `ruleIsMet` method.

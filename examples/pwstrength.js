@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 2.1.1
+* Version: 2.1.2
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -107,9 +107,14 @@ try {
         return 0;
     };
 
-    validation.wordLengthStaticScore = function (options, word, score) {
+    validation.wordMinLengthStaticScore = function (options, word, score) {
         return word.length < options.common.minChar ? 0 : score;
     };
+
+    validation.wordMaxLengthStaticScore = function (options, word, score) {
+        return word.length > options.common.maxChar ? 0 : score;
+    };
+
 
     validation.wordSimilarToUsername = function (options, word, score) {
         var username = $(options.common.usernameField).val();
@@ -519,6 +524,9 @@ var ui = {};
         if (cssClass > -1) {
             $verdict.addClass(options.ui.colorClasses[cssClass]);
         }
+        if (options.ui.showVerdictsInsideProgressBar) {
+            $verdict.css('white-space', 'nowrap');
+        }
         $verdict.html(text);
     };
 
@@ -819,8 +827,10 @@ var methods = {};
 
     methods.ruleIsMet = function (rule) {
         if ($.isFunction(rulesEngine.validation[rule])) {
-            if (rule === "wordLength") {
-                rule = "wordLengthStaticScore";
+            if (rule === "wordMinLength") {
+                rule = "wordMinLengthStaticScore";
+            } else if (rule === "wordMaxLength") {
+                rule = "wordMaxLengthStaticScore";
             }
 
             var rulesMetCnt = 0;
