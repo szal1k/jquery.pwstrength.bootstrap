@@ -60,9 +60,14 @@ try {
         return 0;
     };
 
-    validation.wordLengthStaticScore = function (options, word, score) {
+    validation.wordMinLengthStaticScore = function (options, word, score) {
         return word.length < options.common.minChar ? 0 : score;
     };
+
+    validation.wordMaxLengthStaticScore = function (options, word, score) {
+        return word.length > options.common.maxChar ? 0 : score;
+    };
+
 
     validation.wordSimilarToUsername = function (options, word, score) {
         var username = $(options.common.usernameField).val();
