@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.1.3dev
+## 2.1.3
 
 - Bugfix, call `onScore` when zxcvbn is in use too.
 
