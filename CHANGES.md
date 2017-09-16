@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.1.3dev
+
+- Bugfix, call `onScore` when zxcvbn is in use too.
+
 ## 2.1.2
 
 - Fix errors in Portuguese localization.

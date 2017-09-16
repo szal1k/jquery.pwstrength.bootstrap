@@ -222,7 +222,7 @@ Let's see the options of each section.
   use of the extra classes provided by Bootstrap. The classes will be added to
   the proper DOM element depending of which version of Bootstrap is being
   used.
-  
+
   E.g.
   ```css
     div.progress.custom-class {
