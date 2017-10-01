@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.1.4dev
+
+- Thai localization.
+
 ## 2.1.3
 
 - Bugfix, call `onScore` when zxcvbn is in use too.
