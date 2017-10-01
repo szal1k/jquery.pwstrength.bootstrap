@@ -35,3 +35,4 @@ pages-solutions <https://github.com/pages-solutions>
 fuzzfree <https://github.com/fuzzfree>
 Roland Häder <https://github.com/Quix0r>
 Tzipora Ziegler <https://github.com/tziporaziegler>
+Ishmael Doss๛ <nukboon@gmail.com>
