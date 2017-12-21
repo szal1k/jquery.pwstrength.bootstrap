@@ -3,6 +3,7 @@
 ## 2.1.4dev
 
 - Thai localization.
+- Fix typo in German localization.
 
 ## 2.1.3
 
