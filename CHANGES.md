@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.1.4dev
+## 2.1.4
 
 - Thai localization.
 - Fix typo in German localization.

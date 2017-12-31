@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 2.1.3
+* Version: 2.1.4
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -101,7 +101,7 @@ try {
     };
 
     validation.wordInvalidChar = function (options, word, score) {
-        if (word.match(/[\s,',"]/)) {
+        if (options.common.invalidCharsRegExp.test(word)) {
             return score;
         }
         return 0;
@@ -246,6 +246,7 @@ defaultOptions.common = {};
 defaultOptions.common.minChar = 6;
 defaultOptions.common.maxChar = 20;
 defaultOptions.common.usernameField = "#username";
+defaultOptions.common.invalidCharsRegExp = new RegExp(/[\s,'"]/);
 defaultOptions.common.userInputs = [
     // Selectors for input fields with user input
 ];
@@ -287,8 +288,8 @@ defaultOptions.rules.activated = {
     wordInvalidChar: false,
     wordSimilarToUsername: true,
     wordSequences: true,
-    wordTwoCharacterClasses: false,
-    wordRepetitions: false,
+    wordTwoCharacterClasses: true,
+    wordRepetitions: true,
     wordLowercase: true,
     wordUppercase: true,
     wordOneNumber: true,
