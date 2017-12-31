@@ -54,7 +54,7 @@ try {
     };
 
     validation.wordInvalidChar = function (options, word, score) {
-        if (word.match(/[\s,',"]/)) {
+        if (options.common.invalidCharsRegExp.test(word)) {
             return score;
         }
         return 0;

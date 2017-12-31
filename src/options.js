@@ -15,6 +15,7 @@ defaultOptions.common = {};
 defaultOptions.common.minChar = 6;
 defaultOptions.common.maxChar = 20;
 defaultOptions.common.usernameField = "#username";
+defaultOptions.common.invalidCharsRegExp = new RegExp(/[\s,'"]/);
 defaultOptions.common.userInputs = [
     // Selectors for input fields with user input
 ];
@@ -56,8 +57,8 @@ defaultOptions.rules.activated = {
     wordInvalidChar: false,
     wordSimilarToUsername: true,
     wordSequences: true,
-    wordTwoCharacterClasses: false,
-    wordRepetitions: false,
+    wordTwoCharacterClasses: true,
+    wordRepetitions: true,
     wordLowercase: true,
     wordUppercase: true,
     wordOneNumber: true,

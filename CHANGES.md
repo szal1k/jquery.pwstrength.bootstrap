@@ -4,6 +4,8 @@
 
 - Thai localization.
 - Fix typo in German localization.
+- Activate by default the extra security rules.
+- Make the invalid chars optional rule configurable.
 
 ## 2.1.3
 
