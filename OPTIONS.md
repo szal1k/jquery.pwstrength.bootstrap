@@ -186,6 +186,13 @@ Let's see the options of each section.
   The value used to modify the final score, based on the password length,
   allows you to tailor your results.
 
+* __commonPasswords__:
+
+  Default: `['123456', 'password', ...]` (Array of Strings)
+
+  A list of the most common passwords. If the user inputs a password present
+  in the list, then it gets heavily penalized.
+
 ## User Interface
 
 * __bootstrap2__:

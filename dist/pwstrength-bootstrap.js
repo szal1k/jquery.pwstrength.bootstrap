@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 2.1.4
+* Version: 2.2.0
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -194,6 +194,10 @@ try {
         return word.match(/([a-zA-Z0-9].*[!,@,#,$,%,\^,&,*,?,_,~])|([!,@,#,$,%,\^,&,*,?,_,~].*[a-zA-Z0-9])/) && score;
     };
 
+    validation.wordIsACommonPassword = function (options, word, score) {
+        return ($.inArray(word, options.rules.commonPasswords) >= 0) && score;
+    };
+
     rulesEngine.validation = validation;
 
     rulesEngine.executeRules = function (options, word) {
@@ -279,7 +283,8 @@ defaultOptions.rules.scores = {
     wordTwoSpecialChar: 5,
     wordUpperLowerCombo: 2,
     wordLetterNumberCombo: 2,
-    wordLetterNumberCharCombo: 2
+    wordLetterNumberCharCombo: 2,
+    wordIsACommonPassword: -100
 };
 defaultOptions.rules.activated = {
     wordNotEmail: true,
@@ -298,9 +303,113 @@ defaultOptions.rules.activated = {
     wordTwoSpecialChar: true,
     wordUpperLowerCombo: true,
     wordLetterNumberCombo: true,
-    wordLetterNumberCharCombo: true
+    wordLetterNumberCharCombo: true,
+    wordIsACommonPassword: true
 };
 defaultOptions.rules.raisePower = 1.4;
+// List taken from https://github.com/danielmiessler/SecLists (MIT License)
+defaultOptions.rules.commonPasswords = [
+    '123456',
+    'password',
+    '12345678',
+    'qwerty',
+    '123456789',
+    '12345',
+    '1234',
+    '111111',
+    '1234567',
+    'dragon',
+    '123123',
+    'baseball',
+    'abc123',
+    'football',
+    'monkey',
+    'letmein',
+    '696969',
+    'shadow',
+    'master',
+    '666666',
+    'qwertyuiop',
+    '123321',
+    'mustang',
+    '1234567890',
+    'michael',
+    '654321',
+    'pussy',
+    'superman',
+    '1qaz2wsx',
+    '7777777',
+    'fuckyou',
+    '121212',
+    '000000',
+    'qazwsx',
+    '123qwe',
+    'killer',
+    'trustno1',
+    'jordan',
+    'jennifer',
+    'zxcvbnm',
+    'asdfgh',
+    'hunter',
+    'buster',
+    'soccer',
+    'harley',
+    'batman',
+    'andrew',
+    'tigger',
+    'sunshine',
+    'iloveyou',
+    'fuckme',
+    '2000',
+    'charlie',
+    'robert',
+    'thomas',
+    'hockey',
+    'ranger',
+    'daniel',
+    'starwars',
+    'klaster',
+    '112233',
+    'george',
+    'asshole',
+    'computer',
+    'michelle',
+    'jessica',
+    'pepper',
+    '1111',
+    'zxcvbn',
+    '555555',
+    '11111111',
+    '131313',
+    'freedom',
+    '777777',
+    'pass',
+    'fuck',
+    'maggie',
+    '159753',
+    'aaaaaa',
+    'ginger',
+    'princess',
+    'joshua',
+    'cheese',
+    'amanda',
+    'summer',
+    'love',
+    'ashley',
+    '6969',
+    'nicole',
+    'chelsea',
+    'biteme',
+    'matthew',
+    'access',
+    'yankees',
+    '987654321',
+    'dallas',
+    'austin',
+    'thunder',
+    'taylor',
+    'matrix'
+];
 
 defaultOptions.ui = {};
 defaultOptions.ui.bootstrap2 = false;

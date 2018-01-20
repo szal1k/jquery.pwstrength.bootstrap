@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.2.0dev
+## 2.2.0
 
 - Add new rule to penalize common passwords.
 
