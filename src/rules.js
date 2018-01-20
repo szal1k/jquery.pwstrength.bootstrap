@@ -147,6 +147,10 @@ try {
         return word.match(/([a-zA-Z0-9].*[!,@,#,$,%,\^,&,*,?,_,~])|([!,@,#,$,%,\^,&,*,?,_,~].*[a-zA-Z0-9])/) && score;
     };
 
+    validation.wordIsACommonPassword = function (options, word, score) {
+        return ($.inArray(word, options.rules.commonPasswords) >= 0) && score;
+    };
+
     rulesEngine.validation = validation;
 
     rulesEngine.executeRules = function (options, word) {

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2.2.0dev
+
+- Add new rule to penalize common passwords.
+
 ## 2.1.4
 
 - Thai localization.

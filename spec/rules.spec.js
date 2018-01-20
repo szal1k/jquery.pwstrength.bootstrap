@@ -29,7 +29,8 @@ var jsdom = require('jsdom').jsdom,
                 wordTwoSpecialChar: true,
                 wordUpperLowerCombo: true,
                 wordLetterNumberCombo: true,
-                wordLetterNumberCharCombo: true
+                wordLetterNumberCharCombo: true,
+                wordIsACommonPassword: true
             },
             scores: {
                 wordNotEmail: -100,
@@ -48,9 +49,16 @@ var jsdom = require('jsdom').jsdom,
                 wordTwoSpecialChar: 5,
                 wordUpperLowerCombo: 2,
                 wordLetterNumberCombo: 2,
-                wordLetterNumberCharCombo: 2
+                wordLetterNumberCharCombo: 2,
+                wordIsACommonPassword: -100
             },
-            raisePower: 1.4
+            raisePower: 1.4,
+            commonPasswords: [
+                '123456',
+                'password',
+                '12345678',
+                'qwerty'
+            ]
         },
         ui: {
             spanError: function (options, rule) { return rule; }
@@ -75,10 +83,10 @@ relaxedOptions.rules.activated.wordMinLength = false;
 relaxedOptions.rules.activated.wordSequences = false;
 
 describe('Applying default rules', function () {
-    it('to a simple "password"', function () {
+    it('to a common "password"', function () {
         var password = 'password';
         expect(rulesEngine.executeRules(options, password))
-            .toEqual(19.379173679952558);
+            .toEqual(-80.62082632004744);
     });
 
     it('to a mixed "charsand19283746"', function () {
