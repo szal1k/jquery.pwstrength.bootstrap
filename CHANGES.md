@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 2.2.1dev
+## 2.2.1
 
 - Bugfix in the common passwords rule.
 
