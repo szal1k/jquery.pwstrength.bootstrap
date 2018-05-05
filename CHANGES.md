@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.0dev
+
+- Bootstrap 4 by default.
+- Improved support for Bootstrap 4.
+
 ## 2.2.1
 
 - Bugfix in the common passwords rule.

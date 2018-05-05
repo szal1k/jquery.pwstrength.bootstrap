@@ -154,16 +154,16 @@ var ui = {};
         }
 
         $.each(options.ui.colorClasses, function (idx, value) {
-            if (options.ui.bootstrap4) {
-                $bar.removeClass("bg-" + value);
-            } else {
+            if (options.ui.bootstrap2 || options.bootstrap3) {
                 $bar.removeClass(cssPrefix + "bar-" + value);
+            } else {
+                $bar.removeClass("bg-" + value);
             }
         });
-        if (options.ui.bootstrap4) {
-            $bar.addClass("bg-" + options.ui.colorClasses[cssClass]);
-        } else {
+        if (options.ui.bootstrap2 || options.ui.bootstrap3) {
             $bar.addClass(cssPrefix + "bar-" + options.ui.colorClasses[cssClass]);
+        } else {
+            $bar.addClass("bg-" + options.ui.colorClasses[cssClass]);
         }
         $bar.css("width", percentage + '%');
     };

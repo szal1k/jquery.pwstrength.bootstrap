@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 2.2.1
+* Version: 3.0.0dev
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -416,7 +416,7 @@ defaultOptions.rules.commonPasswords = [
 
 defaultOptions.ui = {};
 defaultOptions.ui.bootstrap2 = false;
-defaultOptions.ui.bootstrap4 = false;
+defaultOptions.ui.bootstrap3 = false;
 defaultOptions.ui.colorClasses = [
     "danger", "danger", "danger", "warning", "warning", "success"
 ];
@@ -613,16 +613,16 @@ var ui = {};
         }
 
         $.each(options.ui.colorClasses, function (idx, value) {
-            if (options.ui.bootstrap4) {
-                $bar.removeClass("bg-" + value);
-            } else {
+            if (options.ui.bootstrap2 || options.bootstrap3) {
                 $bar.removeClass(cssPrefix + "bar-" + value);
+            } else {
+                $bar.removeClass("bg-" + value);
             }
         });
-        if (options.ui.bootstrap4) {
-            $bar.addClass("bg-" + options.ui.colorClasses[cssClass]);
-        } else {
+        if (options.ui.bootstrap2 || options.ui.bootstrap3) {
             $bar.addClass(cssPrefix + "bar-" + options.ui.colorClasses[cssClass]);
+        } else {
+            $bar.addClass("bg-" + options.ui.colorClasses[cssClass]);
         }
         $bar.css("width", percentage + '%');
     };
