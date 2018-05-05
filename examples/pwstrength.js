@@ -689,7 +689,11 @@ var ui = {};
             $el.find("+ .popover .popover-content").html(html);
         } else {
             // It's hidden
-            popover.options.content = html;
+            if (options.ui.bootstrap2 || options.ui.bootstrap3) {
+                popover.options.content = html;
+            } else {
+                popover.config.content = html;
+            }
             $el.popover("show");
         }
     };

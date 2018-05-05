@@ -199,16 +199,17 @@ Let's see the options of each section.
 
   Default: `false` (Boolean)
 
-  Sets if it supports legacy Bootstrap 2 (true) or the current Bootstrap 3
-  (false), the progress bar html is different.
+  Set it to `true` to activate support for Bootstrap 2. Incompatible with `bootstrap3` option.
 
-* __bootstrap4__:
+  Bootstrap 4 is the default supported version of Bootstrap.
+
+* __bootstrap3__:
 
   Default: `false` (Boolean)
 
-  Sets if it supports unstable Bootstrap 4 (true) or the current Bootstrap 3
-  (false), the progress bar html is different. Keep in mind that the current
-  Boostrap 4 support is very basic.
+  Set it to `true` to activate support for Bootstrap 3. Incompatible with `bootstrap2` option.
+
+  Bootstrap 4 is the default supported version of Bootstrap.
 
 * __colorClasses__:
 
@@ -284,6 +285,9 @@ Let's see the options of each section.
 
   If the `showVerdictsInsideProgressBar` option is active, then the verdicts
   won't appear on the popover.
+
+  _Note: In Bootstrap 4, the popper.js library is required. More details in
+  [the Bootstrap documentation](https://getbootstrap.com/docs/4.1/components/popovers/)._
 
 * __popoverPlacement__:
 
