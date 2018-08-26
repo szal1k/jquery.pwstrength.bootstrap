@@ -240,19 +240,34 @@ var ui = {};
     };
 
     ui.updateFieldStatus = function (options, $el, cssClass, remove) {
-        var targetClass = options.ui.bootstrap2 ? ".control-group" : ".form-group",
-            $container = $el.parents(targetClass).first();
+        var $target = $el;
+
+        if (options.ui.bootstrap2) {
+            $target = $el.parents(".control-group").first();
+        } else if (options.ui.bootstrap3) {
+            $target = $el.parents(".form-group").first();
+        }
 
         $.each(statusClasses, function (idx, css) {
-            if (!options.ui.bootstrap2) { css = "has-" + css; }
-            $container.removeClass(css);
+            if (options.ui.bootstrap3) {
+                css = "has-" + css;
+            } else if (!options.ui.bootstrap2) { // BS4
+                if (css === "error") { css = "danger"; }
+                css = "border-" + css;
+            }
+            $target.removeClass(css);
         });
 
         if (remove) { return; }
 
         cssClass = statusClasses[Math.floor(cssClass / 2)];
-        if (!options.ui.bootstrap2) { cssClass = "has-" + cssClass; }
-        $container.addClass(cssClass);
+        if (options.ui.bootstrap3) {
+            cssClass = "has-" + cssClass;
+        } else if (!options.ui.bootstrap2) { // BS4
+            if (cssClass === "error") { cssClass = "danger"; }
+            cssClass = "border-" + cssClass;
+        }
+        $target.addClass(cssClass);
     };
 
     ui.percentage = function (options, score, maximun) {
