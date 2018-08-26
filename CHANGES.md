@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.0dev
+## 3.0.0
 
 - Bootstrap 4 by default.
 - Improved support for Bootstrap 4.

@@ -1,6 +1,6 @@
 {
   "name": "pwstrength-bootstrap",
-  "version": "3.0.0dev",
+  "version": "3.0.0",
   "homepage": "https://github.com/ablanco/jquery.pwstrength.bootstrap",
   "authors": [
     "Alejandro Blanco <alejandro.b.e@gmail.com>"

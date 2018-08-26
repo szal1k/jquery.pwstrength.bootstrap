@@ -229,7 +229,7 @@ Let's see the options of each section.
 
   Displays the password strength in a progress bar.
 
-* __progressExtraCssClasses__: (Bootstrap 3&4 only)
+* __progressExtraCssClasses__: (Bootstrap 3 & 4 only)
 
   Default: `""` (String)
 
@@ -280,14 +280,14 @@ Let's see the options of each section.
   Default: `false` (Boolean)
 
   Displays the error messages and the verdicts in a Bootstrap popover, instead
-  of below the input field. Bootstrap tooltip.js and popover.js must to be
-  included.
+  of below the input field.
 
   If the `showVerdictsInsideProgressBar` option is active, then the verdicts
   won't appear on the popover.
 
   _Note: In Bootstrap 4, the popper.js library is required. More details in
-  [the Bootstrap documentation](https://getbootstrap.com/docs/4.1/components/popovers/)._
+  [the Bootstrap documentation](https://getbootstrap.com/docs/4.1/components/popovers/).
+  In previous versions tooltip.js and popover.js must be included._
 
 * __popoverPlacement__:
 
@@ -353,8 +353,6 @@ Let's see the options of each section.
   this setting is active, the verdict viewport is ignored and they won't appear
   on the popover if it is being showed. Also this option overrides the value of
   the _showVerdicts_ one.
-
-  This option is not available when using Bootstrap 4.
 
 * __useVerdictCssClass__:
 
