@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.1
+
+- Bugfix in progress bar colors in Bootstrap 3.
+
 ## 3.0.0
 
 - Bootstrap 4 by default.

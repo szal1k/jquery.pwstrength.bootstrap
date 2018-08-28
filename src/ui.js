@@ -154,7 +154,7 @@ var ui = {};
         }
 
         $.each(options.ui.colorClasses, function (idx, value) {
-            if (options.ui.bootstrap2 || options.bootstrap3) {
+            if (options.ui.bootstrap2 || options.ui.bootstrap3) {
                 $bar.removeClass(cssPrefix + "bar-" + value);
             } else {
                 $bar.removeClass("bg-" + value);
