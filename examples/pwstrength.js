@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 3.0.0
+* Version: 3.0.1
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -613,7 +613,7 @@ var ui = {};
         }
 
         $.each(options.ui.colorClasses, function (idx, value) {
-            if (options.ui.bootstrap2 || options.bootstrap3) {
+            if (options.ui.bootstrap2 || options.ui.bootstrap3) {
                 $bar.removeClass(cssPrefix + "bar-" + value);
             } else {
                 $bar.removeClass("bg-" + value);
