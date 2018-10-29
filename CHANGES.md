@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.2dev
+
+- Add Czech localization.
+
 ## 3.0.1
 
 - Bugfix in progress bar colors in Bootstrap 3.
