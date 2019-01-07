@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 3.0.1
+* Version: 3.0.2
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -579,6 +579,7 @@ var ui = {};
         try {
             $el.popover("destroy");
         } catch (error) {
+            // Bootstrap 4.2.X onwards
             $el.popover("dispose");
         }
         $el.popover({

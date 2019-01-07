@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.2dev
+## 3.0.2
 
 - Add Czech localization.
 - Bugfix with popovers in Bootstrap 4.2.X versions.
