@@ -3,6 +3,7 @@
 ## 3.0.2dev
 
 - Add Czech localization.
+- Bugfix with popovers in Bootstrap 4.2.X versions.
 
 ## 3.0.1
 

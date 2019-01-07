@@ -576,7 +576,11 @@ var ui = {};
     };
 
     ui.initPopover = function (options, $el) {
-        $el.popover("destroy");
+        try {
+            $el.popover("destroy");
+        } catch (error) {
+            $el.popover("dispose");
+        }
         $el.popover({
             html: true,
             placement: options.ui.popoverPlacement,
