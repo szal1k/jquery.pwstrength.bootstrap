@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.3dev
+
+- Add Arabic localization.
+
 ## 3.0.2
 
 - Add Czech localization.
