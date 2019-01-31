@@ -3,6 +3,7 @@
 ## 3.0.3dev
 
 - Add Arabic localization.
+- Add Norwegian localization.
 
 ## 3.0.2
 
