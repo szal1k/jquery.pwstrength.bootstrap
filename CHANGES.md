@@ -4,6 +4,8 @@
 
 - Add Arabic localization.
 - Add Norwegian localization.
+- Add new option ui.progressBarMinWidth to control the minimum width of the
+  progress bar.
 
 ## 3.0.2
 

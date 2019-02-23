@@ -258,6 +258,15 @@ Let's see the options of each section.
   Minimum percentage filled in the progress bar that depicts the strength of
   the password. An empty password will show the progress bar filled this much.
 
+* __progressBarMinWidth__:
+
+  Default: `1` (Integer)
+
+  Minimum width in pixels filled in the progress bar that depicts the
+  strength of the password. A terrible but not empty password will show the
+  progress bar filled this many pixels. Makes use of the `min-width` CSS
+  property.
+
 * __progressBarMinPercentage__:
 
   Default: `1` (Integer)

@@ -170,6 +170,7 @@ var ui = {};
         } else {
             $bar.addClass("bg-" + options.ui.colorClasses[cssClass]);
         }
+        $bar.css("min-width", options.ui.progressBarMinWidth + 'px');
         $bar.css("width", percentage + '%');
     };
 
