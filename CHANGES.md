@@ -1,10 +1,10 @@
 # CHANGELOG
 
-## 3.0.3dev
+## 3.0.3
 
 - Add Arabic localization.
 - Add Norwegian localization.
-- Add new option ui.progressBarMinWidth to control the minimum width of the
+- Add new ui.progressBarMinWidth option to control the minimum width of the
   progress bar.
 
 ## 3.0.2
