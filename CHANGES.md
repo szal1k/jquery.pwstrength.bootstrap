@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.4dev
+
+- Fix ruleIsMet method, include added custom validation rules.
+
 ## 3.0.3
 
 - Add Arabic localization.
