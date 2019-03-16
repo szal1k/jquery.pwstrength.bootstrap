@@ -158,25 +158,31 @@ var methods = {};
     };
 
     methods.ruleIsMet = function (rule) {
-        if ($.isFunction(rulesEngine.validation[rule])) {
-            if (rule === "wordMinLength") {
-                rule = "wordMinLengthStaticScore";
-            } else if (rule === "wordMaxLength") {
-                rule = "wordMaxLengthStaticScore";
-            }
+        var rulesMetCnt = 0;
 
-            var rulesMetCnt = 0;
-
-            this.each(function (idx, el) {
-                var options = $(el).data("pwstrength-bootstrap");
-
-                rulesMetCnt += rulesEngine.validation[rule](options, $(el).val(), 1);
-            });
-
-            return (rulesMetCnt === this.length);
+        if (rule === "wordMinLength") {
+            rule = "wordMinLengthStaticScore";
+        } else if (rule === "wordMaxLength") {
+            rule = "wordMaxLengthStaticScore";
         }
 
-        $.error("Rule " + rule + " does not exist on jQuery.pwstrength-bootstrap.validation");
+        this.each(function (idx, el) {
+            var options = $(el).data("pwstrength-bootstrap"),
+                ruleFunction = rulesEngine.validation[rule],
+                result;
+
+            if (!$.isFunction(ruleFunction)) {
+                ruleFunction = options.rules.extra[rule];
+            }
+            if ($.isFunction(ruleFunction)) {
+                result = ruleFunction(options, $(el).val(), 1);
+                if ($.isNumeric(result)) {
+                    rulesMetCnt += result;
+                }
+            }
+        });
+
+        return (rulesMetCnt === this.length);
     };
 
     $.fn.pwstrength = function (method) {
