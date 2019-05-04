@@ -3,6 +3,8 @@
 ## 3.0.4dev
 
 - Fix ruleIsMet method, include added custom validation rules.
+- Fix conflict between progressBarMinWidth and progressBarEmptyPercentage
+  options.
 
 ## 3.0.3
 

@@ -68,7 +68,6 @@ try {
         return word.length > options.common.maxChar ? 0 : score;
     };
 
-
     validation.wordSimilarToUsername = function (options, word, score) {
         var username = $(options.common.usernameField).val();
         if (username && word.toLowerCase().match(username.replace(/[\-\[\]\/\{\}\(\)\*\+\=\?\:\.\\\^\$\|\!\,]/g, "\\$&").toLowerCase())) {
