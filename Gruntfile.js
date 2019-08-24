@@ -16,14 +16,8 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-        jslint: {
-            client: {
-                src: ['src/*js', 'spec/*js', 'Gruntfile.js'],
-                directives: {
-                    browser: true,
-                    predef: ['jQuery']
-                }
-            }
+        eslint: {
+            target: ['src/*js', 'spec/*js', 'Gruntfile.js']
         },
         // eslint-disable-next-line camelcase
         jasmine_node: {
@@ -92,14 +86,14 @@ module.exports = function(grunt) {
     });
 
     // Load the plugins
-    grunt.loadNpmTasks('grunt-jslint');
+    grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-jasmine-node');
 
-    grunt.registerTask('test', ['jslint', 'jasmine_node']);
+    grunt.registerTask('test', ['eslint', 'jasmine_node']);
 
     // Default task(s)
-    grunt.registerTask('default', ['jslint', 'concat', 'uglify', 'shell']);
+    grunt.registerTask('default', ['eslint', 'concat', 'uglify', 'shell']);
 };

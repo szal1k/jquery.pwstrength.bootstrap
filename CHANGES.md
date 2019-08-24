@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.5dev
+
+- Apply Prettier code formatter.
+- Replace JSLint with ESLint.
+
 ## 3.0.4
 
 - Fix ruleIsMet method, include added custom validation rules.
