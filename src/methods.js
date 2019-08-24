@@ -1,4 +1,4 @@
-/*global ui, rulesEngine, defaultOptions, zxcvbn, console */
+/*global ui, rulesEngine, defaultOptions, zxcvbn */
 
 /*
  * jQuery Password Strength plugin for Twitter Bootstrap
@@ -8,15 +8,16 @@
  * Dual licensed under the MIT and GPL licenses.
  */
 
+// eslint-disable-next-line no-implicit-globals
 var methods = {};
 
-(function($, methods) {
-    "use strict";
+(function($) {
+    'use strict';
     var onKeyUp, onPaste, applyToAll;
 
     onKeyUp = function(event) {
         var $el = $(event.target),
-            options = $el.data("pwstrength-bootstrap"),
+            options = $el.data('pwstrength-bootstrap'),
             word = $el.val(),
             userInputs,
             verdictText,
@@ -60,7 +61,7 @@ var methods = {};
         verdictText = verdictText[0];
 
         if (options.common.debug) {
-            console.log(score + " - " + verdictText);
+            console.log(score + ' - ' + verdictText);
         }
 
         if ($.isFunction(options.common.onKeyUp)) {
@@ -104,15 +105,15 @@ var methods = {};
                 $el = $(el);
 
             localOptions.instances = {};
-            $el.data("pwstrength-bootstrap", localOptions);
+            $el.data('pwstrength-bootstrap', localOptions);
 
-            $.each(localOptions.common.events, function(idx, eventName) {
-                var handler = eventName === "paste" ? onPaste : onKeyUp;
+            $.each(localOptions.common.events, function(ignore, eventName) {
+                var handler = eventName === 'paste' ? onPaste : onKeyUp;
                 $el.on(eventName, handler);
             });
 
             ui.initUI(localOptions, $el);
-            $el.trigger("keyup");
+            $el.trigger('keyup');
 
             if ($.isFunction(localOptions.common.onLoad)) {
                 localOptions.common.onLoad();
@@ -125,12 +126,12 @@ var methods = {};
     methods.destroy = function() {
         this.each(function(idx, el) {
             var $el = $(el),
-                options = $el.data("pwstrength-bootstrap"),
+                options = $el.data('pwstrength-bootstrap'),
                 elements = ui.getUIElements(options, $el);
             elements.$progressbar.remove();
             elements.$verdict.remove();
             elements.$errors.remove();
-            $el.removeData("pwstrength-bootstrap");
+            $el.removeData('pwstrength-bootstrap');
         });
     };
 
@@ -143,7 +144,7 @@ var methods = {};
 
     methods.addRule = function(name, method, score, active) {
         this.each(function(idx, el) {
-            var options = $(el).data("pwstrength-bootstrap");
+            var options = $(el).data('pwstrength-bootstrap');
 
             options.rules.activated[name] = active;
             options.rules.scores[name] = score;
@@ -153,29 +154,29 @@ var methods = {};
 
     applyToAll = function(rule, prop, value) {
         this.each(function(idx, el) {
-            $(el).data("pwstrength-bootstrap").rules[prop][rule] = value;
+            $(el).data('pwstrength-bootstrap').rules[prop][rule] = value;
         });
     };
 
     methods.changeScore = function(rule, score) {
-        applyToAll.call(this, rule, "scores", score);
+        applyToAll.call(this, rule, 'scores', score);
     };
 
     methods.ruleActive = function(rule, active) {
-        applyToAll.call(this, rule, "activated", active);
+        applyToAll.call(this, rule, 'activated', active);
     };
 
     methods.ruleIsMet = function(rule) {
         var rulesMetCnt = 0;
 
-        if (rule === "wordMinLength") {
-            rule = "wordMinLengthStaticScore";
-        } else if (rule === "wordMaxLength") {
-            rule = "wordMaxLengthStaticScore";
+        if (rule === 'wordMinLength') {
+            rule = 'wordMinLengthStaticScore';
+        } else if (rule === 'wordMaxLength') {
+            rule = 'wordMaxLengthStaticScore';
         }
 
         this.each(function(idx, el) {
-            var options = $(el).data("pwstrength-bootstrap"),
+            var options = $(el).data('pwstrength-bootstrap'),
                 ruleFunction = rulesEngine.validation[rule],
                 result;
 
@@ -201,16 +202,16 @@ var methods = {};
                 this,
                 Array.prototype.slice.call(arguments, 1)
             );
-        } else if (typeof method === "object" || !method) {
+        } else if (typeof method === 'object' || !method) {
             result = methods.init.apply(this, arguments);
         } else {
             $.error(
-                "Method " +
+                'Method ' +
                     method +
-                    " does not exist on jQuery.pwstrength-bootstrap"
+                    ' does not exist on jQuery.pwstrength-bootstrap'
             );
         }
 
         return result;
     };
-})(jQuery, methods);
+})(jQuery);

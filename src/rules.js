@@ -8,33 +8,38 @@
  * Dual licensed under the MIT and GPL licenses.
  */
 
+// eslint-disable-next-line no-implicit-globals
 var rulesEngine = {};
 
+/* eslint-disable */
 try {
     if (!jQuery && module && module.exports) {
-        var jQuery = require("jquery"),
-            jsdom = require("jsdom").jsdom;
+        var jQuery = require('jquery'),
+            jsdom = require('jsdom').jsdom;
         jQuery = jQuery(jsdom().defaultView);
     }
-} catch (ignore) {}
+} catch (ignore) {
+    // Nothing to do
+}
+/* eslint-enable */
 
-(function($, rulesEngine) {
-    "use strict";
+(function($) {
+    'use strict';
     var validation = {};
 
     rulesEngine.forbiddenSequences = [
-        "0123456789",
-        "abcdefghijklmnopqrstuvwxyz",
-        "qwertyuiop",
-        "asdfghjkl",
-        "zxcvbnm",
-        "!@#$%^&*()_+"
+        '0123456789',
+        'abcdefghijklmnopqrstuvwxyz',
+        'qwertyuiop',
+        'asdfghjkl',
+        'zxcvbnm',
+        '!@#$%^&*()_+'
     ];
 
     validation.wordNotEmail = function(options, word, score) {
         if (
             word.match(
-                /^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i
+                /^([\w!#$%&'*+\-/=?^`{|}~]+\.)*[\w!#$%&'*+\-/=?^`{|}~]+@((((([a-z0-9]{1}[a-z0-9-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(:\d{1,5})?)$/i
             )
         ) {
             return score;
@@ -83,10 +88,7 @@ try {
                 .toLowerCase()
                 .match(
                     username
-                        .replace(
-                            /[\-\[\]\/\{\}\(\)\*\+\=\?\:\.\\\^\$\|\!\,]/g,
-                            "\\$&"
-                        )
+                        .replace(/[-[\]/{}()*+=?:.\\^$|!,]/g, '\\$&')
                         .toLowerCase()
                 )
         ) {
@@ -99,7 +101,7 @@ try {
         if (
             word.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/) ||
             (word.match(/([a-zA-Z])/) && word.match(/([0-9])/)) ||
-            (word.match(/(.[!,@,#,$,%,\^,&,*,?,_,~])/) &&
+            (word.match(/(.[!,@,#,$,%,^,&,*,?,_,~])/) &&
                 word.match(/[a-zA-Z0-9_]/))
         ) {
             return score;
@@ -117,19 +119,21 @@ try {
     validation.wordSequences = function(options, word, score) {
         var found = false,
             j;
+
         if (word.length > 2) {
             $.each(rulesEngine.forbiddenSequences, function(idx, seq) {
+                var sequences;
                 if (found) {
                     return;
                 }
-                var sequences = [
+                sequences = [
                     seq,
                     seq
-                        .split("")
+                        .split('')
                         .reverse()
-                        .join("")
+                        .join('')
                 ];
-                $.each(sequences, function(idx, sequence) {
+                $.each(sequences, function(ignore, sequence) {
                     for (j = 0; j < word.length - 2; j += 1) {
                         // iterate the word trough a sliding window of size 3:
                         if (
@@ -166,13 +170,13 @@ try {
     };
 
     validation.wordOneSpecialChar = function(options, word, score) {
-        return word.match(/[!,@,#,$,%,\^,&,*,?,_,~]/) && score;
+        return word.match(/[!,@,#,$,%,^,&,*,?,_,~]/) && score;
     };
 
     validation.wordTwoSpecialChar = function(options, word, score) {
         return (
             word.match(
-                /(.*[!,@,#,$,%,\^,&,*,?,_,~].*[!,@,#,$,%,\^,&,*,?,_,~])/
+                /(.*[!,@,#,$,%,^,&,*,?,_,~].*[!,@,#,$,%,^,&,*,?,_,~])/
             ) && score
         );
     };
@@ -188,7 +192,7 @@ try {
     validation.wordLetterNumberCharCombo = function(options, word, score) {
         return (
             word.match(
-                /([a-zA-Z0-9].*[!,@,#,$,%,\^,&,*,?,_,~])|([!,@,#,$,%,\^,&,*,?,_,~].*[a-zA-Z0-9])/
+                /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/
             ) && score
         );
     };
@@ -206,11 +210,11 @@ try {
         var totalScore = 0;
 
         $.each(options.rules.activated, function(rule, active) {
+            var score, funct, result, errorMessage;
+
             if (active) {
-                var score = options.rules.scores[rule],
-                    funct = rulesEngine.validation[rule],
-                    result,
-                    errorMessage;
+                score = options.rules.scores[rule];
+                funct = rulesEngine.validation[rule];
 
                 if (!$.isFunction(funct)) {
                     funct = options.rules.extra[rule];
@@ -233,10 +237,12 @@ try {
 
         return totalScore;
     };
-})(jQuery, rulesEngine);
+})(jQuery);
 
 try {
     if (module && module.exports) {
         module.exports = rulesEngine;
     }
-} catch (ignore) {}
+} catch (ignore) {
+    // Nothing to do
+}
