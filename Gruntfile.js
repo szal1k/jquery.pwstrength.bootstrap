@@ -46,6 +46,8 @@ module.exports = function(grunt) {
                     'src/rules.js',
                     'src/options.js',
                     'src/ui.js',
+                    'src/ui.progressbar.js',
+                    'src/ui.popover.js',
                     'src/methods.js'
                 ],
                 dest: '<%= pkg.name %>.js'
