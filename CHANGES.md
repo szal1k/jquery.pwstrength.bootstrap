@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.5dev
+## 3.0.5
 
 - Apply Prettier code formatter.
 - Replace JSLint with ESLint.
