@@ -184,15 +184,7 @@ var ui = {};
         }
 
         $.each(statusClasses, function(idx, css) {
-            if (options.ui.bootstrap3) {
-                css = 'has-' + css;
-            } else if (!options.ui.bootstrap2) {
-                // BS4
-                if (css === 'error') {
-                    css = 'danger';
-                }
-                css = 'border-' + css;
-            }
+            css = ui.cssClassesForBS(options, css);
             $target.removeClass(css);
         });
 
@@ -201,16 +193,21 @@ var ui = {};
         }
 
         cssClass = statusClasses[Math.floor(cssClass / 2)];
+        cssClass = ui.cssClassesForBS(options, cssClass);
+        $target.addClass(cssClass);
+    };
+
+    ui.cssClassesForBS = function(options, css) {
         if (options.ui.bootstrap3) {
-            cssClass = 'has-' + cssClass;
+            css = 'has-' + css;
         } else if (!options.ui.bootstrap2) {
             // BS4
-            if (cssClass === 'error') {
-                cssClass = 'danger';
+            if (css === 'error') {
+                css = 'danger';
             }
-            cssClass = 'border-' + cssClass;
+            css = 'border-' + css;
         }
-        $target.addClass(cssClass);
+        return css;
     };
 
     ui.getVerdictAndCssClass = function(options, score) {
@@ -240,7 +237,7 @@ var ui = {};
     };
 
     ui.updateUI = function(options, $el, score) {
-        var cssClass, barPercentage, verdictText, verdictCssClass;
+        var cssClass, verdictText, verdictCssClass;
 
         cssClass = ui.getVerdictAndCssClass(options, score);
         verdictText = score === 0 ? '' : cssClass[0];
@@ -248,19 +245,14 @@ var ui = {};
         verdictCssClass = options.ui.useVerdictCssClass ? cssClass : -1;
 
         if (options.ui.showProgressBar) {
-            if (score === undefined) {
-                barPercentage = options.ui.progressBarEmptyPercentage;
-            } else {
-                barPercentage = ui.percentage(
-                    options,
-                    score,
-                    options.ui.scores[4]
-                );
-            }
-            ui.updateProgressBar(options, $el, cssClass, barPercentage);
-            if (options.ui.showVerdictsInsideProgressBar) {
-                ui.updateVerdict(options, $el, verdictCssClass, verdictText);
-            }
+            ui.showProgressBar(
+                options,
+                $el,
+                score,
+                cssClass,
+                verdictCssClass,
+                verdictText
+            );
         }
 
         if (options.ui.showStatus) {

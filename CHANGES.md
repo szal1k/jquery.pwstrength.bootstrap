@@ -6,6 +6,7 @@
 - Replace JSLint with ESLint.
 - Add new rules.specialCharClass option to personalize special chars
   detection.
+- Separate progress bar and popover widgets to their own files.
 
 ## 3.0.4
 

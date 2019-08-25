@@ -11,6 +11,15 @@
 (function($) {
     'use strict';
 
+    ui.percentage = function(options, score, maximun) {
+        var result = Math.floor((100 * score) / maximun),
+            min = options.ui.progressBarMinPercentage;
+
+        result = result <= min ? min : result;
+        result = result > 100 ? 100 : result;
+        return result;
+    };
+
     ui.initProgressBar = function(options, $el) {
         var $container = ui.getContainer(options, $el),
             progressbar = '<div class="progress ';
@@ -39,6 +48,27 @@
             $container.find(options.ui.viewports.progress).append(progressbar);
         } else {
             $(progressbar).insertAfter($el);
+        }
+    };
+
+    ui.showProgressBar = function(
+        options,
+        $el,
+        score,
+        cssClass,
+        verdictCssClass,
+        verdictText
+    ) {
+        var barPercentage;
+
+        if (score === undefined) {
+            barPercentage = options.ui.progressBarEmptyPercentage;
+        } else {
+            barPercentage = ui.percentage(options, score, options.ui.scores[4]);
+        }
+        ui.updateProgressBar(options, $el, cssClass, barPercentage);
+        if (options.ui.showVerdictsInsideProgressBar) {
+            ui.updateVerdict(options, $el, verdictCssClass, verdictText);
         }
     };
 
@@ -72,14 +102,5 @@
             $bar.css('min-width', '');
         }
         $bar.css('width', percentage + '%');
-    };
-
-    ui.percentage = function(options, score, maximun) {
-        var result = Math.floor((100 * score) / maximun),
-            min = options.ui.progressBarMinPercentage;
-
-        result = result <= min ? min : result;
-        result = result > 100 ? 100 : result;
-        return result;
     };
 })(jQuery);
