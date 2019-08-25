@@ -4,6 +4,8 @@
 
 - Apply Prettier code formatter.
 - Replace JSLint with ESLint.
+- Add new rules.specialCharClass option to personalize special chars
+  detection.
 
 ## 3.0.4
 

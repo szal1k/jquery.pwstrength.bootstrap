@@ -72,6 +72,7 @@ defaultOptions.rules.activated = {
     wordIsACommonPassword: true
 };
 defaultOptions.rules.raisePower = 1.4;
+defaultOptions.rules.specialCharClass = '[!,@,#,$,%,^,&,*,?,_,~]';
 // List taken from https://github.com/danielmiessler/SecLists (MIT License)
 defaultOptions.rules.commonPasswords = [
     '123456',

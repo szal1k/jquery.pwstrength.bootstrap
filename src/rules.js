@@ -98,11 +98,14 @@ try {
     };
 
     validation.wordTwoCharacterClasses = function(options, word, score) {
+        var specialCharRE = new RegExp(
+            '(.' + options.rules.specialCharClass + ')'
+        );
+
         if (
             word.match(/([a-z].*[A-Z])|([A-Z].*[a-z])/) ||
             (word.match(/([a-zA-Z])/) && word.match(/([0-9])/)) ||
-            (word.match(/(.[!,@,#,$,%,^,&,*,?,_,~])/) &&
-                word.match(/[a-zA-Z0-9_]/))
+            (word.match(specialCharRE) && word.match(/[a-zA-Z0-9_]/))
         ) {
             return score;
         }
@@ -170,15 +173,20 @@ try {
     };
 
     validation.wordOneSpecialChar = function(options, word, score) {
-        return word.match(/[!,@,#,$,%,^,&,*,?,_,~]/) && score;
+        var specialCharRE = new RegExp(options.rules.specialCharClass);
+        return word.match(specialCharRE) && score;
     };
 
     validation.wordTwoSpecialChar = function(options, word, score) {
-        return (
-            word.match(
-                /(.*[!,@,#,$,%,^,&,*,?,_,~].*[!,@,#,$,%,^,&,*,?,_,~])/
-            ) && score
+        var twoSpecialCharRE = new RegExp(
+            '(.*' +
+                options.rules.specialCharClass +
+                '.*' +
+                options.rules.specialCharClass +
+                ')'
         );
+
+        return word.match(twoSpecialCharRE) && score;
     };
 
     validation.wordUpperLowerCombo = function(options, word, score) {
@@ -190,11 +198,15 @@ try {
     };
 
     validation.wordLetterNumberCharCombo = function(options, word, score) {
-        return (
-            word.match(
-                /([a-zA-Z0-9].*[!,@,#,$,%,^,&,*,?,_,~])|([!,@,#,$,%,^,&,*,?,_,~].*[a-zA-Z0-9])/
-            ) && score
+        var letterNumberCharComboRE = new RegExp(
+            '([a-zA-Z0-9].*' +
+                options.rules.specialCharClass +
+                ')|(' +
+                options.rules.specialCharClass +
+                '.*[a-zA-Z0-9])'
         );
+
+        return word.match(letterNumberCharComboRE) && score;
     };
 
     validation.wordIsACommonPassword = function(options, word, score) {

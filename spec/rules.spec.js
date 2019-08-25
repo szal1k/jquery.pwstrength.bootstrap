@@ -52,7 +52,8 @@ var jsdom = require('jsdom').jsdom,
                 wordIsACommonPassword: -100
             },
             raisePower: 1.4,
-            commonPasswords: ['123456', 'password', '12345678', 'qwerty']
+            commonPasswords: ['123456', 'password', '12345678', 'qwerty'],
+            specialCharClass: '[!,@,#,$,%,^,&,*,?,_,~]'
         },
         ui: {
             spanError: function(ignore, rule) {

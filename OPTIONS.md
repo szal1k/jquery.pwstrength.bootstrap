@@ -186,6 +186,13 @@ Let's see the options of each section.
   The value used to modify the final score, based on the password length,
   allows you to tailor your results.
 
+* __specialCharClass__:
+
+  Default: `"[!,@,#,$,%,^,&,*,?,_,~]"` (String)
+
+  This is the regular expression class used to match special chars whitin
+  the rules engine.
+
 * __commonPasswords__:
 
   Default: `['123456', 'password', ...]` (Array of Strings)
