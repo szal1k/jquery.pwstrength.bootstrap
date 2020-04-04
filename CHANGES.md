@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.6
+
+- Update dependencies.
+
 ## 3.0.5
 
 - Apply Prettier code formatter.
