@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.7dev
+
+- Fix dependencies version mess.
+
 ## 3.0.6
 
 - Update dependencies.
