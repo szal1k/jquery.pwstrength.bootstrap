@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.8
+
+- Start using peerDependencies instead of regular dependencies.
+
 ## 3.0.7
 
 - Fix dependencies version mess.
