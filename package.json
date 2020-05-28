@@ -19,6 +19,7 @@
         "type": "git",
         "url": "https://github.com/ablanco/jquery.pwstrength.bootstrap.git"
     },
+    "jsdelivr": "dist/pwstrength-bootstrap.min.js",
     "license": "(GPL-3.0 OR MIT)",
     "scripts": {
         "test": "grunt test"
