@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.9
+
+- Add jsdelivr entry in package.json.
+
 ## 3.0.8
 
 - Start using peerDependencies instead of regular dependencies.
