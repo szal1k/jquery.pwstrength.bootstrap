@@ -3,6 +3,7 @@
 ## 3.0.9
 
 - Add jsdelivr entry in package.json.
+- Update dev dependencies.
 
 ## 3.0.8
 
