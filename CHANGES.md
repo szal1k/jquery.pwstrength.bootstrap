@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 3.0.10dev
+
+- Update dev dependencies.
+- Stop using deprecated $.isFunction.
+
 ## 3.0.9
 
 - Add jsdelivr entry in package.json.

@@ -51,7 +51,7 @@ var methods = {};
             } else {
                 score = rulesEngine.executeRules(options, word);
             }
-            if ($.isFunction(options.common.onScore)) {
+            if (typeof options.common.onScore === 'function') {
                 score = options.common.onScore(options, word, score);
             }
         }
@@ -64,7 +64,7 @@ var methods = {};
             console.log(score + ' - ' + verdictText);
         }
 
-        if ($.isFunction(options.common.onKeyUp)) {
+        if (typeof options.common.onKeyUp === 'function') {
             options.common.onKeyUp(event, {
                 score: score,
                 verdictText: verdictText,
@@ -115,7 +115,7 @@ var methods = {};
             ui.initUI(localOptions, $el);
             $el.trigger('keyup');
 
-            if ($.isFunction(localOptions.common.onLoad)) {
+            if (typeof localOptions.common.onLoad === 'function') {
                 localOptions.common.onLoad();
             }
         });
@@ -180,10 +180,10 @@ var methods = {};
                 ruleFunction = rulesEngine.validation[rule],
                 result;
 
-            if (!$.isFunction(ruleFunction)) {
+            if (typeof ruleFunction !== 'function') {
                 ruleFunction = options.rules.extra[rule];
             }
-            if ($.isFunction(ruleFunction)) {
+            if (typeof ruleFunction === 'function') {
                 result = ruleFunction(options, $(el).val(), 1);
                 if ($.isNumeric(result)) {
                     rulesMetCnt += result;

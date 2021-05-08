@@ -228,11 +228,11 @@ try {
                 score = options.rules.scores[rule];
                 funct = rulesEngine.validation[rule];
 
-                if (!$.isFunction(funct)) {
+                if (typeof funct !== 'function') {
                     funct = options.rules.extra[rule];
                 }
 
-                if ($.isFunction(funct)) {
+                if (typeof funct === 'function') {
                     result = funct(options, word, score);
                     if (result) {
                         totalScore += result;
