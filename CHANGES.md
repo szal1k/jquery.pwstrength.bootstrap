@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.0.10dev
+## 3.0.10
 
 - Update dev dependencies.
 - Stop using deprecated $.isFunction.
