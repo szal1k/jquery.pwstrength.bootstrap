@@ -133,6 +133,8 @@ var methods = {};
             elements.$errors.remove();
             $el.removeData('pwstrength-bootstrap');
         });
+
+        return this;
     };
 
     methods.forceUpdate = function() {
@@ -140,6 +142,8 @@ var methods = {};
             var event = { target: el };
             onKeyUp(event);
         });
+
+        return this;
     };
 
     methods.addRule = function(name, method, score, active) {
@@ -150,6 +154,8 @@ var methods = {};
             options.rules.scores[name] = score;
             options.rules.extra[name] = method;
         });
+
+        return this;
     };
 
     applyToAll = function(rule, prop, value) {
@@ -160,10 +166,14 @@ var methods = {};
 
     methods.changeScore = function(rule, score) {
         applyToAll.call(this, rule, 'scores', score);
+
+        return this;
     };
 
     methods.ruleActive = function(rule, active) {
         applyToAll.call(this, rule, 'activated', active);
+
+        return this;
     };
 
     methods.ruleIsMet = function(rule) {
