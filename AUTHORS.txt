@@ -40,3 +40,4 @@ Pascal Gentemann <https://github.com/PascalGentemann>
 Lukáš Kovařík <lkovarik11@gmail.com>
 Khalid Moharrum <khalid.moharram@gmail.com>
 Codecamv <https://github.com/Codecamv>
+Mauro José da Silva <https://github.com/maurojs10>

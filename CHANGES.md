@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.0.11dev
+
+- Allow chaining after setter methods.
+
 ## 3.0.10
 
 - Update dev dependencies.
