@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 3.1.0dev
+## 3.1.0
 
 - Allow chaining after setter methods.
 - Bootstrap 5 support.
