@@ -18,7 +18,7 @@ suits your purposes better.
 ## Requirements
 
 * jQuery 1.7 or higher
-* Bootstrap 2, 3 or 4
+* Bootstrap 2, 3, 4 or 5
 
 ### Not using Bootstrap?
 

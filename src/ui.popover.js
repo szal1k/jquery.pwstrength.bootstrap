@@ -6,7 +6,7 @@
  * Dual licensed under the MIT and GPL licenses.
  */
 
-/* global ui */
+/* global ui, bootstrap, $ */
 
 (function() {
     'use strict';
@@ -29,7 +29,9 @@
     ui.updatePopover = function(options, $el, verdictText, remove) {
         var popover = $el.data('bs.popover'),
             html = '',
-            hide = true;
+            hide = true,
+            bootstrap5 = false,
+            itsVisible = false;
 
         if (
             options.ui.showVerdicts &&
@@ -56,14 +58,30 @@
 
         if (options.ui.bootstrap2) {
             popover = $el.data('popover');
+        } else if (!popover) {
+            // Bootstrap 5
+            popover = bootstrap.Popover.getInstance($el[0]);
+            bootstrap5 = true;
         }
 
-        if (popover.$arrow && popover.$arrow.parents('body').length > 0) {
-            $el.find('+ .popover .popover-content').html(html);
+        if (bootstrap5) {
+            itsVisible = $(popover.tip).is(':visible');
+        } else {
+            itsVisible = popover.$arrow && popover.$arrow.parents('body').length > 0;
+        }
+
+        if (itsVisible) {
+            if (bootstrap5) {
+                $(popover.tip).find('.popover-body').html(html);
+            } else {
+                $el.find('+ .popover .popover-content').html(html);
+            }
         } else {
             // It's hidden
             if (options.ui.bootstrap2 || options.ui.bootstrap3) {
                 popover.options.content = html;
+            } else if (bootstrap5) {
+                popover._config.content = html;
             } else {
                 popover.config.content = html;
             }

@@ -208,7 +208,7 @@ Let's see the options of each section.
 
   Set it to `true` to activate support for Bootstrap 2. Incompatible with `bootstrap3` option.
 
-  Bootstrap 4 is the default supported version of Bootstrap.
+  Bootstrap 4 and 5 are the default supported version of Bootstrap.
 
 * __bootstrap3__:
 
@@ -216,7 +216,7 @@ Let's see the options of each section.
 
   Set it to `true` to activate support for Bootstrap 3. Incompatible with `bootstrap2` option.
 
-  Bootstrap 4 is the default supported version of Bootstrap.
+  Bootstrap 4 and 5 are the default supported version of Bootstrap.
 
 * __colorClasses__:
 
@@ -226,7 +226,7 @@ Let's see the options of each section.
   depending on the strength of the password.
 
   Keep in mind that for Boostrap 2 a `bar-` prefix will be added, that for
-  Boostrap 3 the prefix will be `progress-bar-`, and that for Bootstrap 4 it
+  Boostrap 3 the prefix will be `progress-bar-`, and that for Bootstrap 4 and 5 it
   will be `progress-`. This is the case for the progress bar, not the verdicts.
   For the verdicts there is no prefix whatsoever.
 
@@ -236,14 +236,14 @@ Let's see the options of each section.
 
   Displays the password strength in a progress bar.
 
-* __progressExtraCssClasses__: (Bootstrap 3 & 4 only)
+* __progressExtraCssClasses__: (Bootstrap 3, 4 & 5 only)
 
   Default: `""` (String)
 
-  CSS classes to be added to the generated progress wrapper of the progress-bar. It is meant to make
-  use of the extra classes provided by Bootstrap. The classes will be added to
-  the proper DOM element depending of which version of Bootstrap is being
-  used.
+  CSS classes to be added to the generated progress wrapper of the progress-bar.
+  It is meant to make use of the extra classes provided by Bootstrap. The classes
+  will be added to the proper DOM element depending of which version of Bootstrap
+  is being used.
 
   E.g.
   ```css
@@ -301,8 +301,9 @@ Let's see the options of each section.
   If the `showVerdictsInsideProgressBar` option is active, then the verdicts
   won't appear on the popover.
 
-  _Note: In Bootstrap 4, the popper.js library is required. More details in
-  [the Bootstrap documentation](https://getbootstrap.com/docs/4.1/components/popovers/).
+  _Note: In Bootstrap 4 & 5, the popper.js library is required. More details in
+  [the Bootstrap 4 documentation](https://getbootstrap.com/docs/4.1/components/popovers/)
+  or [the Bootstrap 5 documentation](https://getbootstrap.com/docs/5.0/components/popovers/).
   In previous versions tooltip.js and popover.js must be included._
 
 * __popoverPlacement__:
