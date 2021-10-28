@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 3.1.1
+
+- Fix wordTwoCharacterClasses rule error message not showing up.
+
 ## 3.1.0
 
 - Allow chaining after setter methods.

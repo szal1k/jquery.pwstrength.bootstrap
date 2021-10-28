@@ -109,7 +109,7 @@ try {
         ) {
             return score;
         }
-        return 0;
+        return;
     };
 
     validation.wordRepetitions = function(options, word, score) {

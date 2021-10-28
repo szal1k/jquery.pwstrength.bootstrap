@@ -1,6 +1,6 @@
 /*!
 * jQuery Password Strength plugin for Twitter Bootstrap
-* Version: 3.1.0
+* Version: 3.1.1
 *
 * Copyright (c) 2008-2013 Tane Piper
 * Copyright (c) 2013 Alejandro Blanco
@@ -154,7 +154,7 @@ try {
         ) {
             return score;
         }
-        return 0;
+        return;
     };
 
     validation.wordRepetitions = function(options, word, score) {
